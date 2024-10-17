@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<style> 
+    *{
+        margin: 0px;
+        padding: 0%;
+        box-sizing: border-box;
+    
+    }
+    html{
+      scroll-behavior:smooth;
+      
+
+    }
+  
+             /* for nav tag */
+    .nav{
+        display: grid;
+        grid-template-columns: auto auto ;
+        justify-content: space-around;
+        gap: 20px;
+        background-color: white;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        z-index: 3;
+        /* margin-top: 30px; */
+        
+        
+    }
+    .e1,.e2,.e3,.e4,.e5{
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+        font-family: cursive;
+    }
+    :hover.e1{
+        color: orange;
+    }
+    :hover.e2{
+        color: orange;
+    }
+    :hover.e3{
+        color: orange;
+    }
+    :hover.e4{
+        color: orange;
+    }
+    :hover.e5{
+        color: orange;
+    }
+             /* for home page */
+    .child1{
+       /* margin-top: 76px; */
+        display: grid;
+        grid-template-columns:1fr 3fr;
+        width: 100%;
+        /* height: 100vh; */
+
+    }
+    .c1{
+        margin-top: 100px;
+        width: 100%;
+        background-color:rgb(232, 86, 33);
+        align-content: center;
+     
+    }
+
+    .slide{
+        background-image: url(slide-01.jpg);
+        margin-top: 100px;
+        width: 100%;
+        height: 100vh;
+        animation-name: imgchange;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-delay: 1s;
+    }
+    .logo{
+         font-family: "Pacifico", cursive;
+        font-style: italic;
+        font-size: 40px;
+        text-align: center;
+        color: white;
+    }
+    h5{
+        color: white;
+        text-align: center;
+    }
+    button{
+        background-color: white;
+        color:orangered ;
+        margin-left: 120px;
+        padding: 10PX;
+        border: none;
+    
+
+    }
+    .e6{
+        text-decoration: none;
+        color: orangered ;
+
+    }
+
+                        /* for about page */
+    .child2{
+        padding:100px;
+        display: flex; 
+        justify-content: space-around;   
+       }
+   .c2{
+        margin-right: 20px;
+        flex-basis: 50%;
+        justify-content: space-evenly;
+        padding:40px ;
+    } 
+     #img2{
+        width: 100%;
+        margin-top: 100px;
+        flex-basis: 50%;
+    
+        
+    }
+    .h4{
+        padding: 20px;
+        color: orangered;
+        margin-left: 80px;
+      font-size: 30px;
+      font-family: cursive;
+    }
+    .p1{
+        font-size: 25px;
+    }
+  
+    .cc1{
+
+    }
+    .cc2{
+        padding: 10px;
+        display: grid;
+        grid-template-columns:auto auto auto;
+        justify-content:center;
+        gap: 20px;
+        align-content: center;
+    }
+                        /* for menu page */
+
+    .child3{
+        width: 100%;
+    }
+    .c3{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        overflow-x: scroll;
+        gap: 20px;
+    }
+    .cc3{
+        position: relative;
+        /* overflow: hidden; */
+        
+
+    }
+    #cake{
+        width: 300px;
+        height: 400px;
+      
+    }
+    h1{
+       margin-left: 100px;
+    }
+    .c4{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-around;
+    }
+    .cc4{
+        position: relative;
+        border: 1px solid gray;
+        width: 300px;
+        background-color: orangered;
+        overflow: hidden;
+        
+    }
+    .chef2{
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        opacity: 0;
+        transform: translateY(100px );
+        
+        transition-duration: 3s;
+        position: absolute;
+        text-transform: uppercase;
+        width: 300px;
+        height: 350px;
+        transition-property: all;
+        
+      
+    }
+    #imgchef{
+        width: 300px;
+    }
+    .cc4:hover .chef2{
+        opacity: 1;
+        transform:translateY(-250px);
+
+    }
+    .note{
+        background-color:rgba(0, 0, 0, 0.6);
+        color: white;
+        /* height:400px; */
+        opacity: 0;
+        transform: translateY(-100px);
+        transition-duration: 3s;
+        position: absolute;
+        text-transform: uppercase;
+        transition-property: all;
+    }
+    .cc3:hover .note{
+        opacity: 1;
+        transform:translateY(-150px);
+        
+
+    }
+    .child5{
+        position: relative;
+        background-image: url(slide-03.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+
+    }
+                  /* for backgrond dim */
+    .child5::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .c5{
+        flex-basis: 70%;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-around;
+    }
+    .cc5{
+        margin-top: 150px;
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-align: center;
+        align-items: center;
+        display: grid;
+    }
+    
+    .c6{
+        flex-basis: 30%;
+        margin-top: 120px;
+        background-color: white;
+        position: relative;
+        z-index: 1;
+        height: F;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+    label{
+        
+        font-weight:bold;
+        color: #333;
+        margin-bottom: 10PX;
+        display: inline-block;        
+    }
+    input,textarea{
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    .cc6{
+        display:grid;
+        grid-template-columns: auto auto;
+    }
+    .ccc6{
+
+        padding: 20px;
+        width: 150px;
+        height: fit-content;
+        background-color: white;
+        color: black;
+        margin-top: 00px;
+
+    }
+    .text{
+        font-size: 50px;
+    
+    
+    }
+    .text2{
+        font-size: 20px;
+    }
+    .child6{
+        width: 100%;
+        padding: 70px;
+        /* height: 100vh; */
+    }
+    .c7{
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: space-evenly;
+        margin-left: 600px;
+        margin-right: 600px;
+        gap: 20px;
+    }
+    .c8{
+        margin-top: 40px;
+        /* margin-top: 20px; */
+        display: grid;
+        grid-template-columns: auto auto;
+        gap:50px ;
+
+    }
+    .cc8{
+        display: inline-flex;
+        justify-content: center;
+        border-radius: 15px;
+        align-items: center;
+        padding: 10px;
+        gap: 20px;
+        box-shadow: 3px 3px 20px;
+        
+    }
+    .child7{
+      
+        background-color: orangered;
+        color: white;
+        height: 150px;
+        display:grid;
+        grid-template-columns:auto auto auto;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 60px;
+        width: 100%;
+        padding: 10px;
+    }
+ 
+    
+    
+    @keyframes imgchange{
+        0%{
+            background-image: url(slide-01.jpg);
+            animation-delay: 1s;
+           
+        }
+        25%{
+            background-image: url(slide-02.jpg);
+            animation-delay: 1s;
+        }
+        50%{
+            background-image: url(slide-03.jpg);
+            animation-delay: 1s;
+        }
+        75%{
+            background-image: url(slid-04.jpg);
+            animation-delay: 1s;
+        }
+        100%{
+            background-image: url(slide-05.jpg);
+            animation-delay: 1s;
+        }
+    }
+    @media screen and (width<576px) {
+        .nav{
+            width:100%;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            gap: 10px;
+        }
+        .child1{
+          display: grid;
+           grid-template-columns: auto;
+           width: 100%;
+           align-items: center;
+          
+
+        }
+        .cl1{
+            width: 100%;
+
+        }
+       
+        .slide{
+            margin-top: 0;
+            width: 100%;
+            height: 80vh;
+        }
+        .bt1{
+            align-items: center;
+            align-content: center;
+        }
+     
+        .child2{
+            width: 100%;
+            /* display: flex; */
+            flex-direction:column;
+            padding: 0;
+        }
+        .cc1{
+            padding: 20px;
+        }
+        .c2{
+            padding: 1px;
+
+        }
+        .cc2{
+            margin-left: 0;
+            margin-right: 0px;
+        }
+        #img3{
+            width: 100px;
+        }
+       
+      
+        #img2{
+        width:100%;
+        margin-top: 0;       
+    }
+    .p1{
+       
+        font-size: 20px;
+    }
+    .child3{
+        width: 100%;
+    }
+    .c3{
+      
+        /* grid-template-columns: auto ; */
+        align-content: center;
+        overflow-x: scroll;
+        gap: 20px;
+        width: 310px;
+        height: 410px;
+      margin-left: 65px;
+    }
+    .cc3{
+        width: 310px;
+        height: 410px;
+    }
+    .note{
+        width: 300px;
+    }
+    .child4{
+        width: 100%;
+    }
+   
+    .c4{
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto ;
+        gap: 10px;
+        /* justify-content: space-around; */
+    }
+    .chef2{
+        width: 100%;
+
+    }
+    #imgchef{
+        width: 100%;
+    }
+    .child5{
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* height: 100vh; */
+    }
+    .c5{
+       
+        /* grid-template-columns:1fr 1fr; */
+        height: 100vh;
+        justify-content: center;
+
+       
+    }
+    .cc5{
+        margin-top: 10px;  
+        align-items: center;
+
+    }
+    .ccc5{
+        font-size: 10px;
+    }
+    
+
+  
+    .c6{
+        margin-top: 0px;
+        margin-left: 40px;
+        padding: 10px;
+        height: 540px;
+        width: 300px;
+        align-items: center;
+    }
+    .cc6{
+        display:none;
+        margin-left: 80px;
+        margin-top: 5px;
+    }
+    label{
+        
+        font-weight:lighter;
+        color: #333;
+        margin-bottom: 10PX;
+        display: inline-block;        
+    }
+    input,textarea{
+        width: 100%;
+        padding: 6px;
+        margin: 9px 0;
+        border: 1px solid;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    .text{
+        font-size: 18px;
+        text-align: center;
+      
+    }
+    .text2{
+        text-align: center;
+        font-size: 10px;
+    }
+  
+    .child6{
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        align-items: center;
+    }
+    .c7{
+        grid-template-columns: auto auto auto ;
+        margin-left: 0px;
+        margin-right: 0px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .c8{
+        grid-template-columns: auto ;
+       margin-left: 0;
+       
+
+    }
+   
+    .child7{
+        width: 100%;
+        grid-template-columns: auto auto;
+    }
+
+}
+
+</style>
+<body>
+    
+        <div class="nav">
+            <img src="klassy-logo.png" alt="">
+            <div class="navchild">
+                 <a href="" class="e1">Home</a>
+                 <a href="#about" class="e2">About</a>
+                 <a href="#menu" class="e3">Menu</a>
+                   <a href="#chefs" class="e5">Chefs</a>
+                 <a href="#contact" class="e4">Contact us</a>
+               
+            </div>
+        </div>
+        <div class="child1">
+            <div class="c1">
+                 <h4 class="logo" link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&display=swap" rel="stylesheet">KlassyCafe</h4>
+                 <h5>THE BEST EXPERIENCE</h5><br>
+                 <button class="bt1"><a href="#contact" class="e6">MAKE A RESERVATION</a></button>
+            </div>
+                 <div class="slide"></div>
+                 <!-- <img src="slide-01.jpg" alt="" id="img1"> -->
+        </div> 
+        <div class="child2">
+            <div class="c2">
+                <div class="cc1">
+                    <h4 class="h4" id="about" > --- About us </h4><br><br>
+                    <h2>We Leave A Delicious <br> Memory For You</h2><br><br>
+                    <p class="p1">Klassy Cafe is one of the best restaurant HTML templates with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. 
+                       <br> <br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.
+                    </p><br></div>
+                    <div class="cc2">
+                        <img src="momos.jpg" alt="" id="img3">
+                        <img src="momos1.jpg" alt="" id="img3">
+                        <img src="momos2.jpg" alt="" id="img3">
+                    </div>
+               </div> 
+                <img src="about-video-bg.jpg" alt="" id="img2">
+            
+        </div><br> 
+        <div class="child3">
+            <h4 class="h4" id="menu">---our menu</h4>
+            <h1>Our selection of cakes,pizza,momos <br> and drinks with quality and taste </h1><br><br>
+            <div class="c3">
+                <div class="cc3">
+                    <img src="pan cake.jpg" alt="" id="cake">
+                    <div class="note">
+                        <div class="n1">
+                        <h3>klassy pan cake</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p></div>
+                      </div>
+                       
+                </div>
+                <div class="cc3">
+                    <img src="nuts cake.jpg" alt="" id="cake">
+                   <div class="note">
+                     <h3>klassy nut cake</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                   </div>
+                    
+                </div>
+                <div class="cc3">
+                    <img src="cup cake.jpg" alt="" id="cake">
+                    <div class="note">
+                        <h3>cup cake</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                      </div>
+                       
+                </div>
+                <div class="cc3">
+                    <img src="cake.jpeg" alt="" id="cake">
+                    <div class="note">
+                        <h3>klassy  cake</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                      </div>
+                       
+                </div>
+                <div class="cc3">
+                    <img src="drink1.png" alt="" id="cake">
+                    <div class="note">
+                        <h3>klassy alchol</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                      </div>
+                </div>
+                <div class="cc3">
+                    <img src="drinks.png" alt="" id="cake">
+                    <div class="note">
+                        <h3>klassy wine</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                      </div>
+                       
+                </div>
+             </div>
+           </div>
+           <div class="child4">
+             <h4 class="h4" style="text-align: center;" id="chefs">Our Chefs</h4>
+             <h1 style="text-align: center;">We offer the best <br>ingredients for you </h1><br><br>
+               <div class="c4"> 
+                <div class="cc4">
+                    <img src="chefs-01.jpg" alt="" id="imgchef">
+                    <div class="chef1">
+                             <h3 style="text-align: center;">Randy Walker</h3><br>
+                             <p style="text-align: center;">Pastry Chef  </p>
+                     </div> 
+                     <div class="chef2">  <i class="fa fa-facebook-f" style="font-size:36px"></i>
+                        <i class="fa fa-instagram" style="font-size:36px"></i>
+                        <i class="fa fa-twitter" style="font-size:36px"></i></div>      
+                </div>
+                
+                <div class="cc4">
+                    <img src="chefs-02.jpg" alt="" id="imgchef">
+                    <div class="chef1">
+                             <h3 style="text-align: center;">Randy Walker</h3><br>
+                             <p style="text-align: center;">Pastry Chef  </p>
+                    </div>
+                    <div class="chef2">  <i class="fa fa-facebook-f" style="font-size:36px"></i>
+                        <i class="fa fa-instagram" style="font-size:36px"></i>
+                        <i class="fa fa-twitter" style="font-size:36px"></i></div>
+                </div>
+
+                <div class="cc4">
+                    <img src="chefs-03.jpg" alt="" id="imgchef">
+                    <div class="chef1">
+                        <h3 style="text-align: center;">Randy Walker</h3><br>
+                        <p style="text-align: center;">Pastry Chef  </p>
+                    </div> 
+                    <div class="chef2">  <i class="fa fa-facebook-f" style="font-size:36px"></i>
+                        <i class="fa fa-instagram" style="font-size:36px"></i>
+                        <i class="fa fa-twitter" style="font-size:36px"></i></div>
+                </div>
+            </div><br><br>
+            <div class="child5">
+                <div class="c5">
+                    <div class="cc5">
+                       <div class="ccc5" id="contact"> <h4>---Contact Us</h3>
+                        <h3  class="text">Here You Can Make A Reservation Or <br> Just walkin to our cafe</h3>
+                        <p  class="text2">Donec pretium est orci, non vulputate arcu hendrerit a. Fusce a eleifend riqsie, <br> namei sollicitudin urna diam, sed commodo purus porta ut.</p>
+                        </div>
+                        <div class="cc6">
+                            <div class="ccc6">
+                                <i class="fa fa-phone" style="font-size:30px;color:orangered"></i>
+                                <h3>dial</h3>
+                                <p style="font-size: 12px;">080-090-0990</p>
+                                <p style="font-size: 12px;">080-090-0880</p>
+
+                            </div>
+                            <div class="ccc6">
+                                <i class="fa fa-envelope" style="font-size:30px;color:orangered"></i>
+                                <h3>mail</h3>
+                                <p style="font-size: 12px;">hello@company.com</p>
+                                <p style="font-size: 12px;">info@company.com</p>
+
+                            </div>
+                            
+
+                         </div>
+                    </div>
+                    </div>
+                    <div class="c6">
+                   
+                    <h3>TABLE RESERVATION </h3>
+                    <form action="#">
+                    <label  for="name" ></label>
+                    <input type="text" id="name" placeholder="enter name  " name="name">
+                    <label for="email"></label>
+                    <input type="text" id="email" placeholder="enter email" name="email">
+                    <label for="phone number"></label>
+                    <input type="number" id=" phone number" placeholder="enter valid number" name="number">
+                    <label for="MEMBERS"></label>
+                    <input type="text" id="MEMBERS" placeholder="how many memners" name="name">
+                    <label for="date and time"></label>
+                    <input type="datetime" id="date and time" placeholder="date and time as you choose" name="datetime">
+                    <label for="message"></label>
+                    <textarea id="message"  rows="4" placeholder="addtional notes" name="message"></textarea>
+                    <button type="submit"><b>CONFIRM</b></button>                       
+                        
+                   </div>
+                <!-- </div> -->
+            <!-- </div> -->
+           </div><br>
+        <div class="child6">
+            <div class="c7">
+                <div class="cc7">
+                    <img src="breakfast.png" alt="">
+                    <p style="text-align: center;">Breakfast</p>
+                </div>
+                <div class="cc7">
+                    <img src="lunch.png" alt="">
+                    <p style="text-align: center;">Lunch</p>
+                </div>
+                <div class="cc7">
+                    <img src="dinner.png" alt="">
+                    <p style="text-align: center;">Dinner</p>
+                </div>
+            </div>
+            <div class="c8">
+                <div class="cc8">
+                    <img src="tab-item-01.png" alt="">
+                    <h3 style="color: orangered;">Fresh Chicken Salad
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$10.5</h2>
+
+                    
+                </div>
+
+                <div class="cc8">
+                    <img src="tab-item-02.png" alt="">
+                    <h3 style="color: orangered;">Orange Juice
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$8.00</h2>
+
+                    
+                </div>
+
+                <div class="cc8">
+                    <img src="tab-item-03.png" alt="">
+                    <h3 style="color: orangered;">Fruit Salad
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$7.90</h2>
+
+                    
+                </div>
+
+                <div class="cc8">
+                    <img src="tab-item-04.png" alt="">
+                    <h3 style="color: orangered;">Eggs Omelette
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$6.80</h2>
+
+                    
+                </div>
+                <div class="cc8">
+                    <img src="tab-item-05.png" alt="">
+                    <h3 style="color: orangered;">Dollma Pire
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$5.50</h2>
+
+                    
+                </div>
+                <div class="cc8">
+                    <img src="tab-item-06.png" alt="">
+                    <h3 style="color: orangered;">Omelette & Cheese
+                    <p style="color: black;">Lorem ipsum dolor sit amet, consectetur <br> koit adipiscing elit, sed do.</p></h3>
+                    <h2 style="background-color: orangered; padding: 20px;">$4.50</h2>
+
+                    
+                </div>
+             </div>
+        </div>
+        <div class="child7">
+                <div class="cc9">
+                    <i class="fa fa-facebook-f" style="font-size:36px"></i>
+                    <i class="fa fa-instagram" style="font-size:36px"></i>
+                    <i class="fa fa-twitter" style="font-size:36px"></i>
+                </div>
+                <div class="ccc9">
+                    <img src="white-logo.png" alt="">
+                </div>
+                <div class="c10">
+                    <p>copyright klassy.co</p>
+                    <p>design:temp</p>
+
+                </div>
+           
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+</body>
+</html>
